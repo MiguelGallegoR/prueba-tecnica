@@ -1,18 +1,10 @@
 import './App.css'
 import Header from './components/Header'
-import programs from './data/sample.json'
-
 import { Movies } from './components/Movies'
 import { Series } from './components/Series'
 import { useState } from 'react'
 
 function App () {
-  const allMovies = programs.entries.filter(program => program.programType === 'movie' && program.releaseYear >= 2010)
-  const movies = allMovies.slice(0, 20)
-
-  const allSeries = programs.entries.filter(program => program.programType === 'series' && program.releaseYear >= 2010)
-  const series = allSeries.slice(0, 20)
-
   const [pageLoaded, setPageLoaded] = useState('Home')
 
   const handlePageChange = (pageLoaded) => {
@@ -23,8 +15,8 @@ function App () {
     <>
       <Header handlePageChange={handlePageChange} />
       <main>
-        {pageLoaded === 'Movies' && <Movies movies={movies} />}
-        {pageLoaded === 'Tvshows' && <Series series={series} />}
+        {pageLoaded === 'Movies' && <Movies />}
+        {pageLoaded === 'Series' && <Series />}
       </main>
     </>
   )
