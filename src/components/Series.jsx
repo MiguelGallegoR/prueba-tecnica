@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSeries } from '../hooks/useSeries'
 
 function ListOfSeries ({ series }) {
   const [selectedSerie, setSelectedSerie] = useState(null)
@@ -30,12 +31,20 @@ function NoSeriesResult () {
   )
 }
 
-export function Series ({ series }) {
+export function Series () {
+  const { series, loading, showSeries } = useSeries()
+
   const hasSeries = series?.length > 0
+
+  useEffect(() => {
+    showSeries()
+  }, [])
   return (
-    hasSeries
-      ? <ListOfSeries series={series} />
-      : <NoSeriesResult />
+    <>
+      {loading && !hasSeries && <p>Loading...</p>}
+      {hasSeries && <ListOfSeries series={series} />}
+      {!hasSeries && !loading && <NoSeriesResult />}
+    </>
 
   )
 }
