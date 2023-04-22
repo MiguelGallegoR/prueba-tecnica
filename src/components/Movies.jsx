@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useMovies } from '../hooks/useMovies'
+
 function ListOfMovies ({ movies }) {
   const [selectedMovie, setSelectedMovie] = useState(null)
 
@@ -31,12 +33,20 @@ function NoMoviesResult () {
   )
 }
 
-export function Movies ({ movies }) {
+export function Movies () {
+  const { movies, loading, showMovies } = useMovies()
+
   const hasMovies = movies?.length > 0
+
+  useEffect(() => {
+    showMovies()
+  }, [])
   return (
-    hasMovies
-      ? <ListOfMovies movies={movies} />
-      : <NoMoviesResult />
+    <>
+      {loading && !hasMovies && <p>Loading...</p>}
+      {hasMovies && <ListOfMovies movies={movies} />}
+      {!hasMovies && !loading && <NoMoviesResult />}
+    </>
 
   )
 }
