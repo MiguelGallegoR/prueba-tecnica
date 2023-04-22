@@ -1,16 +1,26 @@
-
+import { useState } from 'react'
 function ListOfMovies ({ movies }) {
+  const [selectedMovie, setSelectedMovie] = useState(null)
+
+  const handleSelectMovie = (movie) => {
+    setSelectedMovie(movie)
+  }
+
+  const handlePopupClose = () => {
+    setSelectedMovie(null)
+  }
+
   return (
     <ul className='movies'>
       {
-                movies.map(movie => (
-                  <li className='movie' key={movie.title}>
-                    <h3>{movie.title}</h3>
-                    <p>{movie.releaseYear}</p>
-                    <img src={movie.images['Poster Art'].url} alt={movie.title} width='300px' />
-                  </li>
-                ))
-            }
+        movies.map(movie =>
+          <Movie movie={movie} key={movie.title} onSelectedMovie={() => handleSelectMovie(movie)} />
+        )
+
+      }
+
+      {selectedMovie && <MovieInfo movieInfo={selectedMovie} handlePopupClose={handlePopupClose} />}
+
     </ul>
   )
 }
@@ -27,6 +37,32 @@ export function Movies ({ movies }) {
     hasMovies
       ? <ListOfMovies movies={movies} />
       : <NoMoviesResult />
+
+  )
+}
+
+function Movie ({ movie, onSelectedMovie }) {
+  return (
+    <li className='movie' key={movie.title} onClick={onSelectedMovie}>
+      <h3>{movie.title}</h3>
+      <p>{movie.releaseYear}</p>
+      <img src={movie.images['Poster Art'].url} alt={movie.title} width='300px' />
+    </li>
+  )
+}
+
+function MovieInfo ({ movieInfo, handlePopupClose }) {
+  return (
+    <div className='popup'>
+      <div className='popup-content'>
+        <button onClick={handlePopupClose}>Cerrar</button>
+        <h2>{movieInfo.title}</h2>
+        <p>{movieInfo.description}</p>
+        <p>{movieInfo.releaseYear}</p>
+        <img src={movieInfo.images['Poster Art'].url} alt={movieInfo.title} width='300px' />
+      </div>
+
+    </div>
 
   )
 }
