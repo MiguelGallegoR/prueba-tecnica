@@ -4,6 +4,7 @@ import programs from './data/sample.json'
 
 import { Movies } from './components/Movies'
 import { Series } from './components/Series'
+import { useState } from 'react'
 
 function App () {
   const allMovies = programs.entries.filter(program => program.programType === 'movie' && program.releaseYear >= 2010)
@@ -12,13 +13,18 @@ function App () {
   const allSeries = programs.entries.filter(program => program.programType === 'series' && program.releaseYear >= 2010)
   const series = allSeries.slice(0, 20)
 
+  const [pageLoaded, setPageLoaded] = useState('Home')
+
+  const handlePageChange = (pageLoaded) => {
+    setPageLoaded(pageLoaded)
+  }
+
   return (
     <>
-      <Header />
-
+      <Header handlePageChange={handlePageChange} />
       <main>
-        <Movies movies={movies} />
-        <Series series={series} />
+        {pageLoaded === 'Movies' && <Movies movies={movies} />}
+        {pageLoaded === 'Tvshows' && <Series series={series} />}
       </main>
     </>
   )
