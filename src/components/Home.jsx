@@ -4,7 +4,7 @@ export function Home ({ handlePageChange }) {
       title: 'Movies'
     },
     {
-      title: 'Tvshows'
+      title: 'Series'
     }
   ]
 
