@@ -52,31 +52,16 @@ export function Movies () {
 }
 
 function Movie ({ movie, onSelectedMovie }) {
-  const [imagenCargada, setImagenCargada] = useState(false)
-
-  function comprobarImagen () {
-    setImagenCargada(true)
-  }
-
-  const poster = movie.images['Poster Art'].url
   return (
     <li className='movie' key={movie.title} onClick={onSelectedMovie}>
       <h3>{movie.title}</h3>
       <p>{movie.releaseYear}</p>
-      <img src={poster} alt={movie.title} width='300px' onLoad={comprobarImagen} />
-      {!imagenCargada && <img src='../src/assets/clapperboard.png' alt={movie.title} />}
+      <img src={movie.imageUrl} alt={movie.title} width='300px' />
     </li>
   )
 }
 
 function MovieInfo ({ movieInfo, handlePopupClose }) {
-  const [imagenCargada, setImagenCargada] = useState(false)
-
-  function comprobarImagen () {
-    setImagenCargada(true)
-  }
-
-  const poster = movieInfo.images['Poster Art'].url
   return (
     <div className='popup'>
       <div className='popup-content'>
@@ -84,14 +69,7 @@ function MovieInfo ({ movieInfo, handlePopupClose }) {
         <h2>{movieInfo.title}</h2>
         <p>{movieInfo.description}</p>
         <p>{movieInfo.releaseYear}</p>
-        <img src='../src/assets/clapperboard.png' alt={movieInfo.title} width='300px' onLoad={comprobarImagen} />
-        {imagenCargada
-          ? (
-            <img src={poster} alt={movieInfo.title} />
-            )
-          : (
-            <img src='../src/assets/clapperboard.png' alt={movieInfo.title} />
-            )}
+        <img src={movieInfo.imageUrl} alt={movieInfo.title} width='300px' />
 
       </div>
 
