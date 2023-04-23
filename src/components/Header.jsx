@@ -1,7 +1,5 @@
-import { Footer } from './Footer'
-import { Home } from './Home'
 
-export default function Header ({ handlePageChange }) {
+export default function Header () {
   return (
     <>
       <header>
@@ -18,8 +16,6 @@ export default function Header ({ handlePageChange }) {
           <h2 style={{ textAlign: 'left', fontSize: '2rem' }}>Popular titles</h2>
         </div>
       </header>
-      <Home handlePageChange={handlePageChange} />
-      <Footer />
     </>
   )
 }
