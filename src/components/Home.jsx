@@ -11,7 +11,9 @@ export function Home ({ handlePageChange }) {
   return (
     <main>
       {buttons.map(button =>
-        <button onClick={() => handlePageChange(button.title)} key={button.title}>{button.title}</button>
+        <div key={button.title} className='home-buttons'>
+          <button onClick={() => handlePageChange(button.title)} key={button.title}>{button.title}</button>
+        </div>
       )}
     </main>
   )
