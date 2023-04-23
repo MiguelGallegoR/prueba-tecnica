@@ -1,3 +1,4 @@
+import { Footer } from './Footer'
 import { Home } from './Home'
 
 export default function Header ({ handlePageChange }) {
@@ -18,6 +19,7 @@ export default function Header ({ handlePageChange }) {
         </div>
       </header>
       <Home handlePageChange={handlePageChange} />
+      <Footer />
     </>
   )
 }
