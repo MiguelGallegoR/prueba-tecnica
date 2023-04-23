@@ -19,5 +19,6 @@ export function useSeries () {
     }
   }
 
-  return { series, showSeries, loading }
+  const sortedSeries = [...series].sort((a, b) => a.title.localeCompare(b.title))
+  return { series: sortedSeries, showSeries, loading }
 }
