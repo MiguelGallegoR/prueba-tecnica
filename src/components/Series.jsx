@@ -54,7 +54,7 @@ function Serie ({ serie, onSelectedSerie }) {
     <li className='serie' key={serie.title} onClick={onSelectedSerie}>
       <h3>{serie.title}</h3>
       <p>{serie.releaseYear}</p>
-      <img src={serie.images['Poster Art'].url} alt={serie.title} width='300px' />
+      <img src={serie.imageUrl} alt={serie.title} width='300px' />
     </li>
   )
 }
@@ -67,7 +67,7 @@ function SerieInfo ({ serieInfo, handlePopupClose }) {
         <h2>{serieInfo.title}</h2>
         <p>{serieInfo.description}</p>
         <p>{serieInfo.releaseYear}</p>
-        <img src={serieInfo.images['Poster Art'].url} alt={serieInfo.title} width='300px' />
+        <img src={serieInfo.imageUrl} alt={serieInfo.title} width='300px' />
       </div>
 
     </div>
