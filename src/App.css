@@ -1,14 +1,15 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  overflow-x: hidden;
+
 }
 
 main {
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-bottom: 100px;
 }
 
 header{
@@ -16,14 +17,22 @@ header{
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  background-color: blue;
+  background-color: #0067ff;
 }
 
+header h1, h2, a, button{
+  color: #fff !important;
+}
+
+header h1{
+      text-shadow: 0 0 5px #0a25f0, 0 0 5px #0012f0;
+}
 .header-menu{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10rem;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .header-buttons{
@@ -33,10 +42,42 @@ header{
   gap: 2rem;
 }
 
+.header-buttons button{
+  background-color: #333;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 #popular-titles{
   background-color: #333;
   color: aliceblue;
   width: 100%;
+  margin: 0 auto;
+}
+
+#popular-titles h2{
+  width: 80%;
+  margin: 5px auto;
+}
+
+.home-buttons{
+  margin-top: 50px;
+  margin-left: 2%;
+  width: 200px;
+  height: 200px;
+  background-image: url('src/assets/movie-regular-240.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #333;
+  padding: 10px;
+}
+
+.home-buttons button{
+  width: 100%;
+  height: 100%;
+  background: none;
+  text-transform: uppercase;
+  font-size: xx-large;
 }
 
 .movies, .series {
@@ -51,12 +92,22 @@ header{
   gap: 32px;
 }
 
+.movies li:hover, .series li:hover {
+  opacity: 0.8;
+  border: 1px solid #FFF;
+}
+
+
+li img{
+  height: 300px;
+}
 .movie, .serie {
   text-align: center;
 }
 
 .movie h3, .movie p, .serie h3, .serie p {
   margin: 0;
+  color: black;
 }
 
 .movie img, .serie img {
@@ -87,6 +138,10 @@ header{
   overflow: auto;
 }
 
+.popup-content h2{
+  color: black!important;
+}
+
 .close-button {
   position: absolute;
   top: 10px;
@@ -94,4 +149,85 @@ header{
   font-size: 20px;
   color: gray;
   cursor: pointer;
+}
+
+footer{
+  background-color: #333;
+  color: #8b9191!important;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  margin: 0 auto;
+  padding: 2%;
+  font-size: 12px;
+  
+}
+.footer-menu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  width: 50%;
+}
+
+.footer-socials{
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #FFF;
+  float: left;
+}
+.footer-stores {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  width: 100px;
+  float: right;
+}
+
+
+@media screen and (max-width: 575px){
+    .header-menu{
+      display: flex;
+      flex-direction: column;
+      place-items: center;
+      margin: 0 auto;
+    }
+    main{
+      display: flex;
+      flex-direction: column;
+      place-items: center;
+      margin: 50px auto;
+    }
+
+    footer{
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    footer, .footer-menu, .footer-icons, .footer-stores{
+      display: flex;
+      flex-direction: column;
+      place-items: center;
+      margin: 0 auto;
+    }
+
+    #copyright{
+      margin-top: 12px;
+      margin-bottom: 5px;
+    }
+
+    .footer-menu, .footer-menu p, .footer-stores, footer p{
+      gap: 0.3rem;
+      margin: 0 auto;
+    }
+
 }
