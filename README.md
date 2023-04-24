@@ -1,8 +1,12 @@
 
--Para inizializar el proyecto he usado vite y como linter he usado la libreria standard.
--En cuanto a los estilos del index.css los he sacado de water.css https://watercss.kognise.dev/
--He utilizado la librería json-server para emular una api a partir del json dado y poder hacer el fetching de datos.
-  Para que funcione solo tiene que lanzar este comando en un nuevo terminal: npx json-server --watch src/data/sample.json
+- 01: [Para inizializar el proyecto he usado vite y como linter he usado la libreria standard]
+- 02: [En cuanto a los estilos del index.css los he sacado de water.css https://watercss.kognise.dev/]
+- 03: [He utilizado la librería json-server para emular una api a partir del json dado y poder hacer el fetching de datos.
+  Para que funcione solo tiene que lanzar este comando en un nuevo terminal: npx json-server --watch src/data/sample.json]
+- 04: [Para el testing he utilizado playwright. En este enlace tiene la documentación de como usarlo: https://playwright.dev/docs/intro]
+
+
+
 -Para el testing he utilizado playwright. En este enlace tiene la documentación de como usarlo: https://playwright.dev/docs/intro
 
 ESTRUCTURA DEL PROYECTO:
