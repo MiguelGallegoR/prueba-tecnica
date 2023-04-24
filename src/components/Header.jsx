@@ -2,9 +2,9 @@
 export default function Header () {
   return (
     <>
-      <header>
+      <header id='header'>
         <div className='header-menu'>
-          <a href='/index'>
+          <a href='/index' id='demo-streaming'>
             <h1>DEMO Streaming</h1>
           </a>
           <div className='header-buttons'>
