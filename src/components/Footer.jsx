@@ -1,6 +1,6 @@
 export function Footer () {
   return (
-    <footer style={{ bottom: 0, width: '100%' }}>
+    <footer style={{ bottom: 0, width: '100%' }} id='footer'>
       <div className='footer-menu'>
         <p>Home |</p>
         <p> Terms and Conditions |</p>
